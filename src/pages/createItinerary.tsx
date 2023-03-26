@@ -2,7 +2,7 @@ import styles from '@component/styles/Home.module.css'
 import Head from 'next/head'
 import { useUser } from '@auth0/nextjs-auth0/client'
 import { withPageAuthRequired } from '@auth0/nextjs-auth0'
-import { Box, Button, Container, FormGroup, Grid, IconButton, InputAdornment, TextField, Toolbar, Typography } from '@mui/material';
+import { Button, Container, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers'
 import SearchIcon from '@mui/icons-material/Search';
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
@@ -17,7 +17,7 @@ export default function NewItinerary() {
     if (error) return <>Error!</>
     if (user) {
         const { isLoaded } = useLoadScript({
-            googleMapsApiKey: "AIzaSyAXceB-YTgirqFAYfTyb9scGmCLuSkf9ts",
+            googleMapsApiKey: process.env.NEXT_PUBLIC_APP_GOOGLE_KEY as string,
             libraries: ["places"]
         })
 
